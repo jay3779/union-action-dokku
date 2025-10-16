@@ -1,0 +1,57 @@
+# Terraform MCP Integration Rules
+
+You have access to the Terraform MCP Server. Use it to:
+
+## Available MCP Tools
+
+1. **get_terraform_documentation** - Retrieve latest Terraform resource/module documentation
+2. **get_provider_documentation** - Get DigitalOcean provider documentation
+3. **validate_terraform** - Validate Terraform configuration syntax
+4. **search_registry** - Search Terraform Registry for modules
+
+## When Generating Infrastructure Code
+
+- Always use `get_terraform_documentation` for resource schemas
+- Always use `get_provider_documentation` for DigitalOcean-specific resources
+- Use the existing module structure in `modules/droplet/` as a template
+- Follow the variable naming conventions established in `variables.tf`
+- Reference existing patterns for security, tagging, and lifecycle management
+
+## Code Generation Guidelines
+
+1. **Modules**: Use existing `modules/droplet/` as template for new modules
+2. **Variables**: Define all inputs in `variables.tf` with descriptions and validation
+3. **Resources**: Define resources in `main.tf` or module-specific files
+4. **Outputs**: Export important values in `outputs.tf`
+5. **Documentation**: Keep `.tfvars.example` updated with all new variables
+
+## Project Structure Context
+
+- **Root Configuration**: `providers.tf`, `variables.tf`, `main.tf`, `outputs.tf`
+- **Modules**: `modules/droplet/` for reusable components
+- **Documentation**: README.md, DEPLOYMENT_GUIDE.md, FILE_STRUCTURE.md
+- **Git Control**: `.gitignore` protects sensitive files
+
+## Before Generating Code
+
+1. Check existing variable definitions
+2. Review module structure
+3. Validate against DigitalOcean provider documentation
+4. Ensure naming follows `{project_name}-{description}-{environment}` pattern
+5. Apply appropriate tags from `common_tags`
+
+## Security Practices
+
+- Never hardcode secrets in generated code
+- Always use variables for sensitive data
+- Mark sensitive variables with `sensitive = true`
+- Use environment variables for API tokens
+- Reference `.gitignore` rules for state file protection
+
+## Testing Generated Code
+
+1. Always run `terraform validate`
+2. Run `terraform plan` to review changes
+3. Check for proper tag application
+4. Verify firewall rules are appropriate
+5. Test SSH connectivity patterns

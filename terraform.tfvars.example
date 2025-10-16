@@ -1,0 +1,58 @@
+# DigitalOcean API Token - Get from https://cloud.digitalocean.com/account/api/tokens
+# IMPORTANT: Keep this token secret! Use environment variable or secure secret management
+do_token = "your_digitalocean_api_token_here"
+
+# Region for all resources
+region = "nyc3"
+
+# Project name for naming convention
+project_name = "myapp"
+
+# Environment (dev, staging, prod)
+environment = "dev"
+
+# SSH keys to add to droplets
+# These must already exist in your DigitalOcean account
+ssh_keys = ["my-ssh-key"]
+
+# Common tags applied to all resources
+common_tags = ["terraform", "managed", "myapp"]
+
+# Enable monitoring for all droplets
+enable_monitoring = false
+
+# Enable backups for all droplets
+enable_backups = false
+
+# Droplets configuration
+droplets = {
+  web-01 = {
+    name       = "web-server-01"
+    image      = "ubuntu-24-04-x64"
+    size       = "s-1vcpu-1gb"
+    backups    = false
+    ipv6       = true
+    monitoring = false
+    tags       = ["web", "frontend"]
+  }
+  
+  web-02 = {
+    name       = "web-server-02"
+    image      = "ubuntu-24-04-x64"
+    size       = "s-1vcpu-1gb"
+    backups    = false
+    ipv6       = true
+    monitoring = false
+    tags       = ["web", "frontend"]
+  }
+  
+  db-01 = {
+    name       = "database-server"
+    image      = "ubuntu-24-04-x64"
+    size       = "s-2vcpu-2gb"
+    backups    = true
+    ipv6       = true
+    monitoring = true
+    tags       = ["database", "backend"]
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "mcpServers": {
+    "terraform": {
+      "command": "npx",
+      "args": ["-y", "@antml/terraform-mcp"],
+      "disabled": false,
+      "env": {
+        "TERRAFORM_DOC_PATH": "https://registry.terraform.io"
+      }
+    }
+  }
+}
+

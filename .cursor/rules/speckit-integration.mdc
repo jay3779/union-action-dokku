@@ -1,0 +1,142 @@
+# Speckit Integration Rules
+
+You have access to comprehensive feature specifications for guided development.
+
+## Integrated Features Available
+
+### 1. Terraform MCP DO (Complete ✅)
+**Location**: `.specify/features/terraform-mcp-do/spec.md`  
+**Focus**: Production-ready Terraform environment with AI-assisted code generation  
+**Use this when**: Developing infrastructure as code, setting up MCP integration, or generating Terraform patterns
+
+### 2. Drop Deploy DO (Complete ✅)
+**Location**: `.specify/features/drop-deploy-do/spec.md`  
+**Focus**: Intelligent application deployment with zero infrastructure knowledge  
+**Use this when**: Building deployment automation, framework detection, or app orchestration
+
+## How to Reference Specifications
+
+When generating code or making architectural decisions:
+
+1. **Check relevant spec**: Locate the spec related to your task
+2. **Review requirements**: Look for Functional Requirements section
+3. **Check acceptance criteria**: Understand what "done" means
+4. **Follow patterns**: Replicate architectural patterns documented
+5. **Validate against specs**: Ensure generated code matches requirements
+
+## Key Specification Guidelines
+
+### Terraform MCP DO Patterns
+- Use modular Terraform structure (variables.tf, main.tf, outputs.tf, modules/)
+- Apply VPC networking and firewall patterns
+- Follow naming conventions: `{project_name}-{description}-{environment}`
+- Include security groups and isolated networking
+- Support multi-environment (dev/staging/prod)
+
+### Drop Deploy DO Patterns
+- Framework detection from directory contents
+- Dockerfile generation with security best practices
+- Terraform infrastructure generation matching Terraform MCP DO patterns
+- Blue-green and rolling deployment strategies
+- Health checks and automatic rollback mechanisms
+- Secrets management without code/image leakage
+
+## Documentation to Use
+
+### For Architecture
+- Both specs include "Scope" sections (in/out of scope)
+- Review "Key Entities" for data models
+- Check "Dependencies & Constraints" for limitations
+
+### For Implementation
+- Follow "Functional Requirements" for what to build
+- Use "Acceptance Criteria" for testability
+- Reference "Edge Cases & Error Handling" for robustness
+- Check "Non-Functional Aspects" for performance/security
+
+### For Integration
+- "Dependencies & Constraints" show integration points
+- "Assumptions" document expected conditions
+- Related documents link to other features
+
+## Code Generation Best Practices
+
+When generating code for these features:
+
+1. **Match Spec Requirements**: Every function should map to a requirement
+2. **Implement Acceptance Criteria**: Code must pass all acceptance criteria
+3. **Handle Edge Cases**: Include logic for documented edge cases
+4. **Follow Patterns**: Use patterns documented in other specs as templates
+5. **Security First**: Always implement security requirements from specs
+
+## Quality Standards to Maintain
+
+Both specifications achieve 10/10 across:
+- ✅ Completeness (no gaps or ambiguities)
+- ✅ Clarity (easy to understand)
+- ✅ Testability (measurable success criteria)
+- ✅ User Value (clear business benefit)
+- ✅ Security (comprehensive coverage)
+
+Generated code should maintain these standards.
+
+## When Ambiguity Arises
+
+If implementation decisions aren't covered:
+
+1. Check spec's "Assumptions" section
+2. Review "Success Criteria" for decision impact
+3. Look at similar documented edge cases for patterns
+4. Ask: "Does this align with stated user value?"
+5. Reference existing implementations in other specifications
+
+## Common References
+
+### Framework Detection (Drop Deploy DO)
+See: "Application Type Detection" requirement  
+Includes: Node.js, Python, Ruby, Go, Java, Static sites
+
+### Infrastructure Generation (Both Features)
+See: "Infrastructure Generation" in Drop Deploy DO  
+Matches patterns from: Terraform MCP DO "Terraform Core Configuration"
+
+### Deployment Strategies (Drop Deploy DO)
+See: "Deployment Strategies" requirement  
+Options: Blue-green, Rolling, Canary, Immediate
+
+### Secrets Management (Both Features)
+See: "Environment and Secrets Management" in Drop Deploy DO  
+Follows: Security patterns from Terraform MCP DO
+
+## Testing Against Specifications
+
+Use specifications for validation:
+
+1. **Unit Tests**: Map to individual requirements
+2. **Integration Tests**: Verify acceptance criteria
+3. **E2E Tests**: Validate complete user scenarios
+4. **Security Tests**: Verify security requirements
+5. **Performance Tests**: Check non-functional metrics
+
+## Documentation to Generate
+
+When implementing features, create matching documentation:
+
+1. Architecture diagrams matching spec entities
+2. API documentation matching requirements
+3. Deployment guides following deployment strategies
+4. Security documentation covering security requirements
+5. Troubleshooting guides referencing edge cases
+
+## Related Context
+
+- **MCP Integration Rules**: `.cursor/rules/terraform-mcp.mdc`
+- **Project Structure**: `FILE_STRUCTURE.md`
+- **Quality Standards**: `.specify/QUICKSTART.md`
+- **Full Specifications**: `.specify/README.md`
+
+---
+
+**Integration Status**: ✅ Active  
+**Specifications Available**: 2 (both complete)  
+**Quality Level**: 10/10 across all dimensions
