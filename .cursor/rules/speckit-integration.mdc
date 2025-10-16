@@ -5,13 +5,13 @@ You have access to comprehensive feature specifications for guided development.
 ## Integrated Features Available
 
 ### 1. Terraform MCP DO (Complete ✅)
-**Location**: `.specify/features/terraform-mcp-do/spec.md`  
-**Focus**: Production-ready Terraform environment with AI-assisted code generation  
+**Location**: `.specify/features/terraform-mcp-do/spec.md`
+**Focus**: Production-ready Terraform environment with AI-assisted code generation
 **Use this when**: Developing infrastructure as code, setting up MCP integration, or generating Terraform patterns
 
 ### 2. Drop Deploy DO (Complete ✅)
-**Location**: `.specify/features/drop-deploy-do/spec.md`  
-**Focus**: Intelligent application deployment with zero infrastructure knowledge  
+**Location**: `.specify/features/drop-deploy-do/spec.md`
+**Focus**: Intelligent application deployment with zero infrastructure knowledge
 **Use this when**: Building deployment automation, framework detection, or app orchestration
 
 ## How to Reference Specifications
@@ -93,19 +93,19 @@ If implementation decisions aren't covered:
 ## Common References
 
 ### Framework Detection (Drop Deploy DO)
-See: "Application Type Detection" requirement  
+See: "Application Type Detection" requirement
 Includes: Node.js, Python, Ruby, Go, Java, Static sites
 
 ### Infrastructure Generation (Both Features)
-See: "Infrastructure Generation" in Drop Deploy DO  
+See: "Infrastructure Generation" in Drop Deploy DO
 Matches patterns from: Terraform MCP DO "Terraform Core Configuration"
 
 ### Deployment Strategies (Drop Deploy DO)
-See: "Deployment Strategies" requirement  
+See: "Deployment Strategies" requirement
 Options: Blue-green, Rolling, Canary, Immediate
 
 ### Secrets Management (Both Features)
-See: "Environment and Secrets Management" in Drop Deploy DO  
+See: "Environment and Secrets Management" in Drop Deploy DO
 Follows: Security patterns from Terraform MCP DO
 
 ## Testing Against Specifications
@@ -137,6 +137,6 @@ When implementing features, create matching documentation:
 
 ---
 
-**Integration Status**: ✅ Active  
-**Specifications Available**: 2 (both complete)  
+**Integration Status**: ✅ Active
+**Specifications Available**: 2 (both complete)
 **Quality Level**: 10/10 across all dimensions

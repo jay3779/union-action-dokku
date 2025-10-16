@@ -10,9 +10,9 @@ specifications, and infrastructure management within this project.
 
 # Project Constitution v1.0.0
 
-**Project**: Terraform DigitalOcean Infrastructure + Speckit Ecosystem  
-**Ratification Date**: 2025-10-16  
-**Last Amended Date**: 2025-10-16  
+**Project**: Terraform DigitalOcean Infrastructure + Speckit Ecosystem
+**Ratification Date**: 2025-10-16
+**Last Amended Date**: 2025-10-16
 **Status**: Active
 
 ---
@@ -241,9 +241,9 @@ When any principle is breached:
 
 ## Approval and Signatures
 
-**Constitution Approved By**: Technical Leadership  
-**Ratification Date**: 2025-10-16  
-**Next Review Date**: 2025-11-16  
+**Constitution Approved By**: Technical Leadership
+**Ratification Date**: 2025-10-16
+**Next Review Date**: 2025-11-16
 
 ---
 

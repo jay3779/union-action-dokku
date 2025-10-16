@@ -8,8 +8,8 @@ Comprehensive feature specifications for Terraform + DigitalOcean infrastructure
 
 ### Feature 1: Terraform MCP DO
 
-**Location**: `.specify/features/terraform-mcp-do/`  
-**Status**: ✅ Complete and Approved  
+**Location**: `.specify/features/terraform-mcp-do/`
+**Status**: ✅ Complete and Approved
 **Focus**: Production-ready Terraform development environment with MCP integration
 
 #### What It Provides
@@ -34,8 +34,8 @@ Comprehensive feature specifications for Terraform + DigitalOcean infrastructure
 
 ### Feature 2: Drop Deploy DO
 
-**Location**: `.specify/features/drop-deploy-do/`  
-**Status**: ✅ Complete and Approved  
+**Location**: `.specify/features/drop-deploy-do/`
+**Status**: ✅ Complete and Approved
 **Focus**: Intelligent application deployment with zero infrastructure knowledge
 
 #### What It Provides
@@ -62,19 +62,19 @@ Comprehensive feature specifications for Terraform + DigitalOcean infrastructure
 ## 🎯 Core Capabilities
 
 ### Feature 1: Terraform MCP DO
-✅ Infrastructure as Code foundation  
-✅ AI-assisted code generation via MCP  
-✅ Real-time Terraform Registry documentation  
-✅ Module-based scalable architecture  
-✅ Security best practices built-in  
+✅ Infrastructure as Code foundation
+✅ AI-assisted code generation via MCP
+✅ Real-time Terraform Registry documentation
+✅ Module-based scalable architecture
+✅ Security best practices built-in
 ✅ Multi-environment support (dev/staging/prod)
 
 ### Feature 2: Drop Deploy DO
-✅ Auto-detection of application frameworks  
-✅ Containerization with security best practices  
-✅ Infrastructure generation from app detection  
-✅ Orchestrated deployment pipelines  
-✅ Automatic rollback on failure  
+✅ Auto-detection of application frameworks
+✅ Containerization with security best practices
+✅ Infrastructure generation from app detection
+✅ Orchestrated deployment pipelines
+✅ Automatic rollback on failure
 ✅ Cost transparency and monitoring
 
 ---
@@ -343,6 +343,6 @@ Both specifications are:
 
 ---
 
-**Speckit Version**: 1.2  
-**Last Updated**: 2025-10-16  
+**Speckit Version**: 1.2
+**Last Updated**: 2025-10-16
 **Status**: ✅ Operational and Production-Ready
