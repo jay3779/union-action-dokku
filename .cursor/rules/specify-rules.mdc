@@ -4,6 +4,10 @@ Auto-generated from all feature plans. Last updated: 2025-10-17
 
 ## Active Technologies
 - Python 3.9 (from existing Dockerfile) + FastAPI, uvicorn, Docker, Dokku, supervisord/systemd (002-dokku-deploy)
+- Python 3.9+ (current system), GraphQL client integration + FastAPI, Pydantic, structlog, httpx, gql (GraphQL client) (003-enjin-integration-evaluation)
+- Stateless API (current), blockchain integration (new) (003-enjin-integration-evaluation)
+- Python 3.9+ (current system), GraphQL client integration + FastAPI, Pydantic, structlog, httpx, gql (GraphQL client), Enjin Platform API (003-enjin-integration-evaluation)
+- Stateless API (current), platform-level NFT metadata (new) (003-enjin-integration-evaluation)
 
 ## Project Structure
 ```
@@ -19,6 +23,8 @@ cd src [ONLY COMMANDS FOR ACTIVE TECHNOLOGIES][ONLY COMMANDS FOR ACTIVE TECHNOLO
 Python 3.9 (from existing Dockerfile): Follow standard conventions
 
 ## Recent Changes
+- 003-enjin-integration-evaluation: Added Python 3.9+ (current system), GraphQL client integration + FastAPI, Pydantic, structlog, httpx, gql (GraphQL client), Enjin Platform API
+- 003-enjin-integration-evaluation: Added Python 3.9+ (current system), GraphQL client integration + FastAPI, Pydantic, structlog, httpx, gql (GraphQL client)
 - 002-dokku-deploy: Added Python 3.9 (from existing Dockerfile) + FastAPI, uvicorn, Docker, Dokku, supervisord/systemd
 
 <!-- MANUAL ADDITIONS START -->

@@ -1,32 +1,26 @@
-# FastAPI and server
-fastapi
-uvicorn
-python-dotenv
+# Core dependencies
+fastapi==0.104.1
+uvicorn==0.24.0
+pydantic==2.5.0
+structlog==23.2.0
+httpx==0.25.2
 
-# Pydantic for xsrc models (required by xunion-action-integration)
-pydantic>=2.0.0
-
-# Logging
-structlog
-
-# System utilities
-psutil
+# GraphQL client for Enjin Platform API
+gql==3.4.1
+gql[all]==3.4.1
 
 # Testing
-pytest
-pytest-asyncio
-pytest-mock
-pytest-cov
+pytest==7.4.3
+pytest-asyncio==0.21.1
+pytest-mock==3.12.0
+pytest-cov==4.1.0
 
-# HTTP client for xsrc integration
-httpx
+# Environment and configuration
+python-dotenv==1.0.0
 
-# Union Action API dependencies
-# Note: Some dependencies may overlap with main requirements
-# Union Action API specific versions for compatibility
-fastapi==0.100.0
-uvicorn[standard]==0.23.0
-pydantic==2.4.0
-structlog==23.1.0
-httpx==0.24.1
+# Platform integration
+requests==2.31.0
+aiohttp==3.9.1
 
+# Logging and monitoring
+structlog==23.2.0

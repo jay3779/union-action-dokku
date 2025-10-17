@@ -12,6 +12,8 @@ from dotenv import load_dotenv
 
 from .union_action_client_http import UnionActionClient
 from .logging_config import configure_logging, set_correlation_id, clear_correlation_id, get_correlation_id
+from .services.platform_service import PlatformService
+from .models.platform import WebhookRequest, WebhookResponse
 from .error_handlers import (
     ChatOpsAgentError,
     WebhookValidationError,
@@ -72,6 +74,16 @@ union_action_client = UnionActionClient(
     base_url=os.getenv("UNION_ACTION_API_URL", "http://localhost:8000"),
     timeout=float(os.getenv("UNION_ACTION_TIMEOUT", "30.0"))
 )
+
+# Initialize the Platform Service (if enabled)
+platform_service = None
+if os.getenv("PLATFORM_ENABLED", "false").lower() == "true":
+    try:
+        platform_service = PlatformService()
+        logger.info("platform_service_initialized")
+    except Exception as e:
+        logger.error("platform_service_initialization_failed", error=str(e))
+        platform_service = None
 
 
 # T060: Startup health check and bundled service startup
@@ -438,13 +450,47 @@ async def handle_webhook(request: Request):
                 ethical_report=ethical_report
             )
 
+            # Step 3: Platform Integration (if enabled)
+            platform_assets = []
+            platform_collection = None
+            platform_errors = []
+            
+            if platform_service and data.get("platformEnabled", False):
+                try:
+                    logger.info("platform_integration_started", workflow_id=workflow_id)
+                    
+                    # Create NFT from ethical analysis
+                    platform_result = await platform_service.create_ethical_analysis_nft(
+                        ethical_report=ethical_report,
+                        user_address=data.get("userAddress", "default")
+                    )
+                    
+                    if platform_result.get("status") == "success":
+                        platform_assets = [platform_result["asset"]]
+                        platform_collection = platform_result["collection"]
+                        logger.info(
+                            "platform_nft_created",
+                            asset_id=platform_result["asset"]["assetId"],
+                            collection_id=platform_result["collection"]["collectionId"]
+                        )
+                    else:
+                        platform_errors.append(platform_result.get("error", "Unknown platform error"))
+                        logger.error("platform_nft_creation_failed", error=platform_result.get("error"))
+                        
+                except Exception as platform_error:
+                    platform_errors.append(str(platform_error))
+                    logger.error("platform_integration_failed", error=str(platform_error))
+
             # Combine results
             result = {
                 "status": "success",
                 "ethical_analysis": ethical_report,
                 "deployment_report": deployment_report,
                 "survey_url": deployment_report.get("survey_url"),
-                "module_list": deployment_report.get("module_list", [])
+                "module_list": deployment_report.get("module_list", []),
+                "platform_assets": platform_assets,
+                "platform_collection": platform_collection,
+                "platform_errors": platform_errors
             }
 
             api_call_duration_ms = (time.time() - api_call_start_time) * 1000
@@ -633,6 +679,32 @@ def metrics(format: str = "prometheus"):
         from fastapi.responses import PlainTextResponse
         metrics_text = format_prometheus_metrics(metrics_collector)
         return PlainTextResponse(content=metrics_text, media_type="text/plain")
+
+
+@app.get("/platform/health")
+async def platform_health_check():
+    """
+    Platform health check endpoint.
+    
+    Returns platform API connectivity and status information.
+    """
+    if not platform_service:
+        return {
+            "status": "disabled",
+            "message": "Platform integration is not enabled",
+            "timestamp": datetime.now().isoformat()
+        }
+    
+    try:
+        health_result = await platform_service.health_check()
+        return health_result
+    except Exception as e:
+        logger.error("platform_health_check_failed", error=str(e))
+        return {
+            "status": "unhealthy",
+            "error": str(e),
+            "timestamp": datetime.now().isoformat()
+        }
 
 
 @app.get("/debug")
