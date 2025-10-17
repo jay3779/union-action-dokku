@@ -1,0 +1,32 @@
+# FastAPI and server
+fastapi
+uvicorn
+python-dotenv
+
+# Pydantic for xsrc models (required by xunion-action-integration)
+pydantic>=2.0.0
+
+# Logging
+structlog
+
+# System utilities
+psutil
+
+# Testing
+pytest
+pytest-asyncio
+pytest-mock
+pytest-cov
+
+# HTTP client for xsrc integration
+httpx
+
+# Union Action API dependencies
+# Note: Some dependencies may overlap with main requirements
+# Union Action API specific versions for compatibility
+fastapi==0.100.0
+uvicorn[standard]==0.23.0
+pydantic==2.4.0
+structlog==23.1.0
+httpx==0.24.1
+
